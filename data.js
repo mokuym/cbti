@@ -25,7 +25,7 @@ const CBTI_DATA = {
         { text: "拒绝P哥，并告诉他，自己已经举报了他。", score: 0 },
         { text: "我是楚国的男人，我需要打个电话问一下我妈妈我能不能去。", score: 1, personaBonus: { "1": 3, "24": 3 } },
         { text: "看了看P哥手机中这家店里的员工照片，狠狠地咽了一口口水，然后淡定地说：“这很low啊。”", score: 2, personaBonus: { "19": 3 } },
-        { text: "催促P哥：“现在就走，搞快点！！！”", score: 3 }
+        { text: "催促P哥：“现在就走，搞快点！！！”", score: 3, personaBonus: { "4": 3, "20": 3 } }
       ]
     },
     {
@@ -77,7 +77,7 @@ const CBTI_DATA = {
         { text: "不知道", score: 0 },
         { text: " 21", score: 1, personaBonus: { "9": 3 } },
         { text: "13.7", score: 2, personaBonus: { "2": 3 } },
-        { text: "0 （Z神肯定会在这个实验完成之前把两个烧杯全部摔烂）", score: 3 }
+        { text: "0 （Z神肯定会在这个实验完成之前把两个烧杯全部摔烂）", score: 3, personaBonus: { "4": 3, "20": 3 } }
       ]
     },
     {
