@@ -14,6 +14,7 @@ const state = {
   answers: [],
   dimensionScores: {},
   dimensionLevels: {},
+  personaBonusScores: {},
   resultPersona: null
 };
 
@@ -53,6 +54,17 @@ function getCandidatePersonas() {
   return [];
 }
 
+function applyPersonaBonus(bonusObject) {
+  if (!bonusObject) return;
+
+  for (const [personaId, bonusScore] of Object.entries(bonusObject)) {
+    if (!state.personaBonusScores[personaId]) {
+      state.personaBonusScores[personaId] = 0;
+    }
+    state.personaBonusScores[personaId] += bonusScore;
+  }
+}
+
 function calculatePersona() {
   buildDimensionLevels();
 
@@ -80,8 +92,11 @@ function calculatePersona() {
       }
     }
 
-    if (matchScore > bestScore) {
-      bestScore = matchScore;
+    const bonusScore = state.personaBonusScores[String(persona.id)] || 0;
+    const totalScore = matchScore + bonusScore;
+
+    if (totalScore > bestScore) {
+      bestScore = totalScore;
       bestPersona = persona;
     }
   });
@@ -161,6 +176,7 @@ function renderFirstQuestion() {
       state.answers = [];
       state.dimensionScores = {};
       state.dimensionLevels = {};
+      state.personaBonusScores = {};
       state.resultPersona = null;
 
       renderScoredQuestion();
@@ -177,15 +193,15 @@ function renderScoredQuestion() {
     key: ["A", "B", "C", "D"][index]
   }));
 
-  const optionsHtml = shuffledOptions
-    .map(
-      (option) => `
-        <button class="option-btn" data-score="${option.score}">
-          ${option.key}. ${option.text}
-        </button>
-      `
-    )
-    .join("");
+const optionsHtml = shuffledOptions
+  .map(
+    (option, index) => `
+      <button class="option-btn" data-index="${index}">
+        ${option.key}. ${option.text}
+      </button>
+    `
+  )
+  .join("");
 
   screen.innerHTML = `
     <div class="question-block">
@@ -197,18 +213,22 @@ function renderScoredQuestion() {
 
   document.querySelectorAll(".option-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
-      const score = Number(btn.dataset.score);
+      const selectedOption = shuffledOptions[Number(btn.dataset.index)];
+      const score = Number(selectedOption.score);
 
       state.answers.push({
         questionId: q.id,
         dimension: q.dimension,
-        score
+        score,
+        personaBonus: selectedOption.personaBonus || null
       });
 
       if (!state.dimensionScores[q.dimension]) {
         state.dimensionScores[q.dimension] = 0;
       }
       state.dimensionScores[q.dimension] += score;
+
+      applyPersonaBonus(selectedOption.personaBonus);
 
       state.currentIndex += 1;
 
@@ -321,6 +341,7 @@ function resetState() {
   state.answers = [];
   state.dimensionScores = {};
   state.dimensionLevels = {};
+  state.personaBonusScores = {};
   state.resultPersona = null;
 }
 
