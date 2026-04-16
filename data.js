@@ -23,7 +23,7 @@ const CBTI_DATA = {
       fixed: "random",
       options: [
         { text: "拒绝P哥，并告诉他，自己已经举报了他。", score: 0 },
-        { text: "我是楚国的男人，我需要打个电话问一下我妈妈我能不能去。", score: 1, personaBonus: { "1": 1, "24": 1 } },
+        { text: "我是楚国的男人，我需要打个电话问一下我妈妈我能不能去。", score: 1, personaBonus: { "1": 3, "24": 3 } },
         { text: "看了看P哥手机中这家店里的员工照片，狠狠地咽了一口口水，然后淡定地说：“这很low啊。”", score: 2, personaBonus: { "19": 3 } },
         { text: "催促P哥：“现在就走，搞快点！！！”", score: 3 }
       ]
@@ -49,9 +49,9 @@ const CBTI_DATA = {
       fixed: "random",
       options: [
         { text: "竖起你的小耳朵听好以免铸成大错。", score: 0 },
-        { text: "我无所吊谓，我的吊也无所谓。", score: 1 },
-        { text: "我戴的不是套，是责任。", score: 2, personaBonus: { "19": 3 } },
-        { text: "你们谁喜欢戴套？", score: 3, personaBonus: { "16": 3 } }
+        { text: "我无所吊谓，我的吊也无所谓。", score: 1, personaBonus: { "3": 3 }  },
+        { text: "我戴的不是套，是责任。", score: 2, personaBonus: { "19": 5 } },
+        { text: "你们谁喜欢戴套？", score: 3, personaBonus: { "16": 5 } }
       ]
     },
     {
@@ -87,9 +87,9 @@ const CBTI_DATA = {
       routes: ["A", "B", "C"],
       fixed: "random",
       options: [
-        { text: "我不知道。我没有跟他们一起玩。他们经常玩的很晚很吵让我睡不着觉，真想一脚把他们的房门踹烂。", score: 0 },
-        { text: "这有可能是原发性震颤，或甲状腺功能亢进，亦或是帕金森病。不排除其他神经系统问题的可能性。", score: 1, personaBonus: { "4": 1, "20": 1 } },
-        { text: "他在每一场战斗中都会全力以赴，就像是赌上了自己的身家性命一般。", score: 2 },
+        { text: "我不知道。我没有跟他们一起玩。他们经常玩的很晚很吵让我睡不着觉，真想一脚把他们的房门踹烂。", score: 0, personaBonus: { "10": 5 }  },
+        { text: "这有可能是原发性震颤，或甲状腺功能亢进，亦或是帕金森病。不排除其他神经系统问题的可能性。", score: 1, personaBonus: { "4": 3, "20": 3 } },
+        { text: "他在每一场战斗中都会全力以赴，就像是赌上了自己的身家性命一般。", score: 2, personaBonus: { "11": 5 }  },
         { text: "哈哈哈，不知道但是好好笑，哈哈哈。", score: 3, personaBonus: { "7": 3 } }
       ]
     },
@@ -139,7 +139,7 @@ const CBTI_DATA = {
       routes: ["A", "B", "C"],
       fixed: "random",
       options: [
-        { text: "连撸管都不会的Dior丝——J哥。你可以教他如何撸管并成为他的再生父母。", score: 0 },
+        { text: "连撸管都不会的Dior丝——J哥。你可以教他如何撸管并成为他的再生父母。", score: 0, personaBonus: { "10": 3 }  },
         { text: "班级学习委员——X哥。跟他关系再好他也不会在考试的时候露出自己的答题卡让你看到。", score: 1 },
         { text: "同性恋基佬——C姐。虽然万峰老师说过，同性恋不是病，但…", score: 2, personaBonus: { "23": 3 } },
         { text: "非常有钱的富二代——阿F姑。什么朋友？这是我义父！", score: 3, personaBonus: { "6": 3 } }
@@ -154,8 +154,8 @@ const CBTI_DATA = {
       options: [
         { text: "带他一起去电影院里看电影。在电影开始五分钟后，趁他熟睡，扬长而去。", score: 0 },
         { text: "施展轻功，火速遁走。", score: 1, personaBonus: { "18": 3 } },
-        { text: "用你的另一只手抓住他的另一只手来摸你自己的腹肌。礼尚往来。", score: 2 },
-        { text: "咦，这小伙不仅身强体壮，长的还挺帅呢。有点嫉妒了。", score: 3, personaBonus: { "17": 3 } }
+        { text: "用你的另一只手抓住他的另一只手来摸你自己的腹肌。礼尚往来。", score: 2, personaBonus: { "17": 3 } },
+        { text: "咦，这小伙不仅身强体壮，长的还挺帅呢。有点嫉妒了。", score: 3, personaBonus: { "17": 6 } }
       ]
     },
     {
@@ -165,10 +165,10 @@ const CBTI_DATA = {
       routes: ["A", "B", "C"],
       fixed: "random",
       options: [
-        { text: "业是谁？为什么要创他？", score: 0 },
+        { text: "业是谁？为什么要创他？", score: 0, personaBonus: { "10": 1 } },
         { text: "我准备乘着现在国内大好形势准备创业，大家可以真心给我点个赞！", score: 1, personaBonus: { "18": 3 } },
         { text: "不知道，先在群里发一句“想创业了”，看看其他傻逼都有些什么看法。", score: 2, personaBonus: { "7": 3 } },
-        { text: "找一群人傻钱多的一起留学的同学，并称呼他们为兄弟。告诉他们你要创业，并对他们说“做兄弟的要挺我。”让他们每人给你投一些钱，另外再找一个什么都不懂的朋友做法人代表。最后你不花一分钱自己技术入股，占最大股份。", score: 3, personaBonus: { "21": 3 } }
+        { text: "找一群人傻钱多的一起留学的同学，并称呼他们为兄弟。告诉他们你要创业，并对他们说“做兄弟的要挺我。”让他们每人给你投一些钱，另外再找一个什么都不懂的朋友做法人代表。最后你不花一分钱自己技术入股，占最大股份。", score: 6, personaBonus: { "21": 3 } }
       ]
     },
     {
@@ -178,9 +178,9 @@ const CBTI_DATA = {
       routes: ["A", "B", "C"],
       fixed: "random",
       options: [
-        { text: "拉黑她。我觉得无所谓，又没什么后果。", score: 0 },
+        { text: "拉黑她。我觉得无所谓，又没什么后果。", score: 0, personaBonus: { "25": 6 } },
         { text: "先听听故事的来龙去脉再说，吃瓜要紧。说不定这会是个肚子里死过人的故事呢。", score: 1 },
-        { text: "我是一名正直的人。我觉得W少做的不对。我会选择告诉她，帮助W少也成为像我这样正直的人。", score: 2 },
+        { text: "我是一名正直的人。我觉得W少做的不对。我会选择告诉她，帮助W少也成为像我这样正直的人。", score: 2, personaBonus: { "22": 6 } },
         { text: "告诉她W少新窝点的附近特征，并打电话告诉W少：“没事了，我把她给支走了。”直接导致当放下防备后的W少打开新窝点房门的时候，发现前女友正站在房门口与他四目相对。", score: 3, personaBonus: { "18": 3 } }
       ]
     },
@@ -192,8 +192,8 @@ const CBTI_DATA = {
       fixed: "random",
       options: [
         { text: "他在装逼。我最讨厌装逼的人了。", score: 0, personaBonus: { "1": 3, "24": 3 } },
-        { text: "我什么都没看见。吧唧吧唧。真好吃。", score: 1 },
-        { text: "咦？这个人。。。额。。长得好像垃圾袋啊！", score: 2 },
+        { text: "我什么都没看见。吧唧吧唧。真好吃。", score: 1, personaBonus: { "22": 3 } },
+        { text: "咦？这个人。。。额。。长得好像垃圾袋啊！", score: 2, personaBonus: { "18": 6 } },
         { text: "你知道他在装逼但就你自己而言无所吊谓。在案发现场找到同样也觉得他在装逼却因此怀恨在心的老J，把他对其的描述记录下来，并在有朝一日使其传为一段佳话。", score: 3, personaBonus: { "13": 1, "26": 1 } }
       ]
     },
@@ -206,8 +206,8 @@ const CBTI_DATA = {
       options: [
         { text: "得，好不容易这傻逼消停了几年，现在又开始了。", score: 0 },
         { text: "做的很好！（其实是怕设计者对我进行打击报复）", score: 1 },
-        { text: "我觉得无所谓，又没什么后果。", score: 2 },
-        { text: "设计者简直就是天才！（由衷）", score: 3, personaBonus: { "13": 1, "26": 1 } }
+        { text: "我觉得无所谓，又没什么后果。", score: 2, personaBonus: { "18": 6 } },
+        { text: "设计者简直就是天才！（由衷）", score: 3, personaBonus: { "13": 3, "26": 3 } }
       ]
     },
     {
@@ -282,7 +282,7 @@ const CBTI_DATA = {
       routes: ["B", "C"],
       fixed: "random",
       options: [
-        { text: "这事情我不可能会知道，因为在他赖酒之前，我早已经先他一步当场死亡了。", score: 0 },
+        { text: "这事情我不可能会知道，因为在他赖酒之前，我早已经先他一步当场死亡了。", score: 0, personaBonus: { "3": 6 } },
         { text: "我要卖掉WT兄的房子，浪迹天涯。", score: 1 },
         { text: " 笑骂他几句，并为他创作了一首打油诗：WT何曾赖过酒，琼浆玉液肠中走。三番掷骰乾坤定，拍案惊呼吾命休。", score: 2, personaBonus: { "13": 2, "26": 2 } },
         { text: "吩咐其他朋友按住WT兄的四肢，拿起酒杯，亲手为他灌下他未履行的承诺。", score: 3 }
