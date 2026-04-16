@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CBTI 结果调试页</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <div class="container">
+      <h1 class="title">CBTI 结果调试页</h1>
+      <p class="subtitle">点哪个人格，就直接看哪个结果页。</p>
+      <div id="debugList" class="options"></div>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script>
+    const debugList = document.getElementById("debugList");
+
+    const personaButtons = CBTI_DATA.personas
+      .map((persona) => {
+        return `
+          <button class="option-btn" onclick="location.href='index.html?result=${persona.id}'">
+            ${persona.id}. ${persona.name}
+          </button>
+        `;
+      })
+      .join("");
+
+    debugList.innerHTML = personaButtons;
+  </script>
+</body>
+</html>
