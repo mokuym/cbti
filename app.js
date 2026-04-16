@@ -1,6 +1,12 @@
 const screen = document.getElementById("screen");
 const subtitle = document.getElementById("subtitle");
 
+const ASSET_VERSION = "20260414-1";
+
+function assetUrl(fileName) {
+  return `https://www.cbti-test.com/${fileName}?v=${ASSET_VERSION}`;
+}
+
 const state = {
   route: null,
   questionList: [],
@@ -132,8 +138,8 @@ function renderFirstQuestion() {
       <h2 class="question-title">${q.text}</h2>
 
       <div class="image-choice">
-        <img src="${q.leftImage}" alt="左图" class="route-image" />
-        <img src="${q.rightImage}" alt="右图" class="route-image" />
+        <img src="${assetUrl(q.leftImage)}" alt="左图" class="route-image" />
+        <img src="${assetUrl(q.rightImage)}" alt="右图" class="route-image" />
       </div>
 
       <div class="options">${optionsHtml}</div>
@@ -272,7 +278,7 @@ function renderResultPage() {
   }
 
   const imageHtml = persona.resultImage
-    ? `<img src="${persona.resultImage}" alt="${persona.name}" class="result-image" />`
+    ? `<img src="${assetUrl(persona.resultImage)}" alt="${persona.name}" class="result-image" />`
     : "";
 
   const coreHtml = persona.coreText
